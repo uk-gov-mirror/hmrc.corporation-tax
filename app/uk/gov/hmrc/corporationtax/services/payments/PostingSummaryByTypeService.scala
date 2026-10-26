@@ -18,14 +18,16 @@ package uk.gov.hmrc.corporationtax.services.payments
 
 import play.api.Logging
 import uk.gov.hmrc.corporationtax.connectors.payments.PostingSummaryByTypeConnector
-import uk.gov.hmrc.corporationtax.models.payments.{PostingSummaryByTypeResponse, RdsPostingSummaryByTypeResponse, PostingSummaryByTypeRow}
+import uk.gov.hmrc.corporationtax.models.payments.{
+  PostingSummaryByTypeResponse, PostingSummaryByTypeRow, RdsPostingSummaryByTypeResponse
+}
 import uk.gov.hmrc.corporationtax.utils.EmptyAndZeroConstants.zeroValue
 import uk.gov.hmrc.http.HeaderCarrier
 
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 
-class PostingSummaryByTypeService @Inject()(
+class PostingSummaryByTypeService @Inject() (
   connector: PostingSummaryByTypeConnector
 )(implicit ec: ExecutionContext)
     extends Logging {
@@ -43,15 +45,14 @@ class PostingSummaryByTypeService @Inject()(
   }
 
   private def toPostingSummaryByTypeResponse(
-                                              rdsPostingSummaryByTypeResponse: RdsPostingSummaryByTypeResponse
+    rdsPostingSummaryByTypeResponse: RdsPostingSummaryByTypeResponse
   ): PostingSummaryByTypeResponse =
     PostingSummaryByTypeResponse(
       postingSummaryByTypeResponse = rdsPostingSummaryByTypeResponse.postingSummaryByTypeResponse.map { value =>
         PostingSummaryByTypeRow(
           accountingPeriod = value.accountingPeriod.getOrElse(BigDecimal(zeroValue)),
           settlementSequenceNo = value.settlementSequenceNo.getOrElse(BigDecimal(zeroValue)),
-          postingAmountSum = value.postingAmountSum.getOrElse(BigDecimal(zeroValue
-          ))
+          postingAmountSum = value.postingAmountSum.getOrElse(BigDecimal(zeroValue))
         )
       }
     )

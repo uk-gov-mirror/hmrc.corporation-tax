@@ -36,7 +36,7 @@ class PostingSummaryByTypeControllerSpec extends AnyWordSpec with Matchers with 
 
   private trait Fixture {
     val mockService: PostingSummaryByTypeService = mock[PostingSummaryByTypeService]
-    private val cc: ControllerComponents        = stubControllerComponents()
+    private val cc: ControllerComponents         = stubControllerComponents()
 
     implicit val ec: ExecutionContext                    = cc.executionContext
     val fakeRequest: FakeRequest[AnyContentAsEmpty.type] = FakeRequest("GET", "/foo")

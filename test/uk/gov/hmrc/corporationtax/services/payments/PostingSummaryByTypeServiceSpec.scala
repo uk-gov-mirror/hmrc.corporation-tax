@@ -39,12 +39,12 @@ class PostingSummaryByTypeServiceSpec
 
   private trait Setup {
     val mockConnector: PostingSummaryByTypeConnector = mock[PostingSummaryByTypeConnector]
-    implicit val hc: HeaderCarrier                  = HeaderCarrier()
-    private val cc: ControllerComponents            = stubControllerComponents()
-    implicit val ec: ExecutionContext               = cc.executionContext
+    implicit val hc: HeaderCarrier                   = HeaderCarrier()
+    private val cc: ControllerComponents             = stubControllerComponents()
+    implicit val ec: ExecutionContext                = cc.executionContext
 
     val taxRef: Long = 1287892L
-    val postingType = "PYT"
+    val postingType  = "PYT"
 
     val service = new PostingSummaryByTypeService(mockConnector)
 

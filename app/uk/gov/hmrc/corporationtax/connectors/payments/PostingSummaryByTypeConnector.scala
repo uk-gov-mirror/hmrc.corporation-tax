@@ -28,7 +28,7 @@ import java.net.URL
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 
-class PostingSummaryByTypeConnector @Inject()(http: HttpClientV2, appConfig: AppConfig)(implicit ec: ExecutionContext)
+class PostingSummaryByTypeConnector @Inject() (http: HttpClientV2, appConfig: AppConfig)(implicit ec: ExecutionContext)
     extends Logging {
 
   def getPostingSummaryByType(taxRef: Long, postingType: String)(implicit

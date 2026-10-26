@@ -16,91 +16,99 @@
 
 package uk.gov.hmrc.corporationtax.helpers.payments
 
-import uk.gov.hmrc.corporationtax.models.payments.{PostingSummaryByTypeRow, PostingSummaryByTypeResponse, RdsPostingSummaryByTypeResponse, RdsPostingSummaryByTypeRow}
+import uk.gov.hmrc.corporationtax.models.payments.{
+  PostingSummaryByTypeResponse, PostingSummaryByTypeRow, RdsPostingSummaryByTypeResponse, RdsPostingSummaryByTypeRow
+}
 
 trait PostingSummaryByTypeHelper {
 
-  val rdsPostingSummaryByTypeResponseEmpty: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
+  val rdsPostingSummaryByTypeResponseEmpty: RdsPostingSummaryByTypeResponse =
+    RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
 
-  val rdsPostingSummaryByTypeResponseMultiple: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
-    List(
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(1),
-        settlementSequenceNo = Some(123),
-        postingAmountSum = Some(-456789)
-      ),
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(2),
-        settlementSequenceNo = Some(456),
-        postingAmountSum = Some(-789012)
-      ),
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(3),
-        settlementSequenceNo = Some(789),
-        postingAmountSum = Some(123456)
+  val rdsPostingSummaryByTypeResponseMultiple: RdsPostingSummaryByTypeResponse =
+    RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+      List(
+        RdsPostingSummaryByTypeRow(
+          accountingPeriod = Some(1),
+          settlementSequenceNo = Some(123),
+          postingAmountSum = Some(-456789)
+        ),
+        RdsPostingSummaryByTypeRow(
+          accountingPeriod = Some(2),
+          settlementSequenceNo = Some(456),
+          postingAmountSum = Some(-789012)
+        ),
+        RdsPostingSummaryByTypeRow(
+          accountingPeriod = Some(3),
+          settlementSequenceNo = Some(789),
+          postingAmountSum = Some(123456)
+        )
       )
     )
-  )
 
-  val rdsPostingSummaryByTypeResponseNone: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
-    List(
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = None,
-        settlementSequenceNo = Some(123),
-        postingAmountSum = Some(-456789)
-      ),
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(2),
-        settlementSequenceNo = None,
-        postingAmountSum = Some(-789012)
-      ),
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(3),
-        settlementSequenceNo = Some(789),
-        postingAmountSum = None
+  val rdsPostingSummaryByTypeResponseNone: RdsPostingSummaryByTypeResponse =
+    RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+      List(
+        RdsPostingSummaryByTypeRow(
+          accountingPeriod = None,
+          settlementSequenceNo = Some(123),
+          postingAmountSum = Some(-456789)
+        ),
+        RdsPostingSummaryByTypeRow(
+          accountingPeriod = Some(2),
+          settlementSequenceNo = None,
+          postingAmountSum = Some(-789012)
+        ),
+        RdsPostingSummaryByTypeRow(
+          accountingPeriod = Some(3),
+          settlementSequenceNo = Some(789),
+          postingAmountSum = None
+        )
       )
     )
-  )
-  
-  val postingSummaryByTypeResponseEmpty: PostingSummaryByTypeResponse = PostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
 
-  val postingSummaryByTypeResponseMultiple: PostingSummaryByTypeResponse = PostingSummaryByTypeResponse(postingSummaryByTypeResponse =
-    List(
-      PostingSummaryByTypeRow(
-        accountingPeriod = 1,
-        settlementSequenceNo = 123,
-        postingAmountSum = -456789
-      ),
-      PostingSummaryByTypeRow(
-        accountingPeriod = 2,
-        settlementSequenceNo = 456,
-        postingAmountSum = -789012
-      ),
-      PostingSummaryByTypeRow(
-        accountingPeriod = 3,
-        settlementSequenceNo = 789,
-        postingAmountSum = 123456
+  val postingSummaryByTypeResponseEmpty: PostingSummaryByTypeResponse =
+    PostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
+
+  val postingSummaryByTypeResponseMultiple: PostingSummaryByTypeResponse =
+    PostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+      List(
+        PostingSummaryByTypeRow(
+          accountingPeriod = 1,
+          settlementSequenceNo = 123,
+          postingAmountSum = -456789
+        ),
+        PostingSummaryByTypeRow(
+          accountingPeriod = 2,
+          settlementSequenceNo = 456,
+          postingAmountSum = -789012
+        ),
+        PostingSummaryByTypeRow(
+          accountingPeriod = 3,
+          settlementSequenceNo = 789,
+          postingAmountSum = 123456
+        )
       )
     )
-  )
 
-  val postingSummaryByTypeResponseNone: PostingSummaryByTypeResponse = PostingSummaryByTypeResponse(postingSummaryByTypeResponse =
-    List(
-      PostingSummaryByTypeRow(
-        accountingPeriod = 0,
-        settlementSequenceNo = 123,
-        postingAmountSum = -456789
-      ),
-      PostingSummaryByTypeRow(
-        accountingPeriod = 2,
-        settlementSequenceNo = 0,
-        postingAmountSum = -789012
-      ),
-      PostingSummaryByTypeRow(
-        accountingPeriod = 3,
-        settlementSequenceNo = 789,
-        postingAmountSum = 0
+  val postingSummaryByTypeResponseNone: PostingSummaryByTypeResponse =
+    PostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+      List(
+        PostingSummaryByTypeRow(
+          accountingPeriod = 0,
+          settlementSequenceNo = 123,
+          postingAmountSum = -456789
+        ),
+        PostingSummaryByTypeRow(
+          accountingPeriod = 2,
+          settlementSequenceNo = 0,
+          postingAmountSum = -789012
+        ),
+        PostingSummaryByTypeRow(
+          accountingPeriod = 3,
+          settlementSequenceNo = 789,
+          postingAmountSum = 0
+        )
       )
     )
-  )
 }

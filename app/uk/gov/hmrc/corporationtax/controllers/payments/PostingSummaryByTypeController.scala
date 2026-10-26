@@ -26,7 +26,7 @@ import uk.gov.hmrc.play.bootstrap.backend.controller.BackendController
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
 
-class PostingSummaryByTypeController @Inject()(
+class PostingSummaryByTypeController @Inject() (
   cc: ControllerComponents,
   service: PostingSummaryByTypeService
 )(implicit ec: ExecutionContext)

@@ -20,44 +20,34 @@ import uk.gov.hmrc.corporationtax.models.payments.{RdsPostingSummaryByTypeRespon
 
 trait PostingSummaryByTypeHelper {
 
-  val rdsPostingSummaryByTypeResponseEmpty: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
+  val rdsPostingSummaryByTypeResponseEmpty: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(List.empty)
 
-  val rdsPostingSummaryByTypeResponseMultiple: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+  val rdsPostingSummaryByTypeResponseMultiple: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummary =
     List(
       RdsPostingSummaryByTypeRow(
-        accountingPeriod       = Some(1),
+        accountingPeriod       = 1,
         settlementSequenceNo = Some(123), 
-        postingAmountSum = Some(-456789)
+        postingAmountSum = -456789
       ),
       RdsPostingSummaryByTypeRow(
-        accountingPeriod       = Some(2),
+        accountingPeriod       = 2,
         settlementSequenceNo = Some(456),
-        postingAmountSum = Some(-789012)
+        postingAmountSum = -789012
       ),
       RdsPostingSummaryByTypeRow(
-        accountingPeriod       = Some(3),
+        accountingPeriod       = 3,
         settlementSequenceNo = Some(789),
-        postingAmountSum = Some(123456)
+        postingAmountSum = 123456
       )
     )
   )
 
-  val rdsPostingSummaryByTypeResponseNone: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+  val rdsPostingSummaryByTypeResponseNone: RdsPostingSummaryByTypeResponse = RdsPostingSummaryByTypeResponse(postingSummary =
     List(
       RdsPostingSummaryByTypeRow(
-        accountingPeriod = None,
-        settlementSequenceNo = Some(123),
-        postingAmountSum = Some(-456789)
-      ),
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(2),
+        accountingPeriod = 2,
         settlementSequenceNo = None,
-        postingAmountSum = Some(-789012)
-      ),
-      RdsPostingSummaryByTypeRow(
-        accountingPeriod = Some(3),
-        settlementSequenceNo = Some(789),
-        postingAmountSum = None
+        postingAmountSum = -789012
       )
     )
   )

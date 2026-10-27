@@ -18,22 +18,22 @@ package uk.gov.hmrc.corporationtax.models.payments
 
 import play.api.libs.json.{Json, OFormat}
 
-case class RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse: List[RdsPostingSummaryByTypeRow])
+case class RdsPostingSummaryByTypeResponse(postingSummary: List[RdsPostingSummaryByTypeRow])
 
 object RdsPostingSummaryByTypeResponse {
   implicit val format: OFormat[RdsPostingSummaryByTypeResponse] = Json.format[RdsPostingSummaryByTypeResponse]
 }
 case class RdsPostingSummaryByTypeRow(
-  accountingPeriod: Option[BigDecimal],
+  accountingPeriod: BigDecimal,
   settlementSequenceNo: Option[BigDecimal],
-  postingAmountSum: Option[BigDecimal]
+  postingAmountSum: BigDecimal
 )
 
 object RdsPostingSummaryByTypeRow {
   implicit val format: OFormat[RdsPostingSummaryByTypeRow] = Json.format[RdsPostingSummaryByTypeRow]
 }
 
-case class PostingSummaryByTypeResponse(postingSummaryByTypeResponse: List[PostingSummaryByTypeRow])
+case class PostingSummaryByTypeResponse(postingSummary: List[PostingSummaryByTypeRow])
 
 object PostingSummaryByTypeResponse {
   implicit val format: OFormat[PostingSummaryByTypeResponse] = Json.format[PostingSummaryByTypeResponse]

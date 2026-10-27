@@ -42,7 +42,7 @@ class PostingSummaryByTypeConnector @Inject() (http: HttpClientV2, appConfig: Ap
       .execute[RdsPostingSummaryByTypeResponse]
       .recover { case e: Throwable =>
         logger.error(
-          s"[PostingSummaryByTypeConnector][getPostingSummaryByType]: $taxRef :: $postingType - ${e.getMessage}"
+          s"Error receiving posting summary for: $taxRef :: $postingType - ${e.getMessage}"
         )
         throw new RuntimeException(e.getMessage)
       }

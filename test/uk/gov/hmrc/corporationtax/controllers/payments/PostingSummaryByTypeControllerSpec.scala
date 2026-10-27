@@ -39,14 +39,14 @@ class PostingSummaryByTypeControllerSpec extends AnyWordSpec with Matchers with 
     private val cc: ControllerComponents         = stubControllerComponents()
 
     implicit val ec: ExecutionContext                    = cc.executionContext
-    val fakeRequest: FakeRequest[AnyContentAsEmpty.type] = FakeRequest("GET", "/foo")
+    val fakeRequest: FakeRequest[AnyContentAsEmpty.type] = FakeRequest("GET", "/posting-summary")
     val controller                                       = new PostingSummaryByTypeController(cc, mockService)
     val taxReferenceNumber: Long                         = 1234567L
     val postingType: String                              = "PYT"
 
   }
 
-  "GET /foo " should {
+  "GET /posting-summary " should {
 
     "return 200: OK with multiple elements in Posting Summary List" in new Fixture {
 

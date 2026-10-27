@@ -58,7 +58,7 @@ class PostingSummaryByTypeConnectorISpec
               .withBody(
                 s"""
                    |{
-                   |"postingSummaryByTypeResponse":[]
+                   |"postingSummary":[]
                    |
                    |}
                    |""".stripMargin
@@ -79,7 +79,7 @@ class PostingSummaryByTypeConnectorISpec
               .withBody(
                 s"""
                      |{
-                     |"postingSummaryByTypeResponse":
+                     |"postingSummary":
                      |[
                      | {
                      | "accountingPeriod":1,
@@ -117,20 +117,13 @@ class PostingSummaryByTypeConnectorISpec
               .withBody(
                 s"""
                    |{
-                   |"postingSummaryByTypeResponse":
+                   |"postingSummary":
                    |[
-                   | {
-                   | "settlementSequenceNo": 123,
-                   | "postingAmountSum":-456789
-                   |  },
                    | {
                    | "accountingPeriod":2,
                    | "postingAmountSum":-789012
-                   |  },
-                   |   {
-                   | "accountingPeriod":3,
-                   | "settlementSequenceNo": 789
                    |  }
+                   |  
                    |]
                    |}
                    |""".stripMargin

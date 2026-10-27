@@ -23,55 +23,45 @@ import uk.gov.hmrc.corporationtax.models.payments.{
 trait PostingSummaryByTypeHelper {
 
   val rdsPostingSummaryByTypeResponseEmpty: RdsPostingSummaryByTypeResponse =
-    RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
+    RdsPostingSummaryByTypeResponse(List.empty)
 
   val rdsPostingSummaryByTypeResponseMultiple: RdsPostingSummaryByTypeResponse =
-    RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+    RdsPostingSummaryByTypeResponse(postingSummary =
       List(
         RdsPostingSummaryByTypeRow(
-          accountingPeriod = Some(1),
+          accountingPeriod = 1,
           settlementSequenceNo = Some(123),
-          postingAmountSum = Some(-456789)
+          postingAmountSum = -456789
         ),
         RdsPostingSummaryByTypeRow(
-          accountingPeriod = Some(2),
+          accountingPeriod = 2,
           settlementSequenceNo = Some(456),
-          postingAmountSum = Some(-789012)
+          postingAmountSum = -789012
         ),
         RdsPostingSummaryByTypeRow(
-          accountingPeriod = Some(3),
+          accountingPeriod = 3,
           settlementSequenceNo = Some(789),
-          postingAmountSum = Some(123456)
+          postingAmountSum = 123456
         )
       )
     )
 
   val rdsPostingSummaryByTypeResponseNone: RdsPostingSummaryByTypeResponse =
-    RdsPostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+    RdsPostingSummaryByTypeResponse(postingSummary =
       List(
         RdsPostingSummaryByTypeRow(
-          accountingPeriod = None,
-          settlementSequenceNo = Some(123),
-          postingAmountSum = Some(-456789)
-        ),
-        RdsPostingSummaryByTypeRow(
-          accountingPeriod = Some(2),
+          accountingPeriod = 2,
           settlementSequenceNo = None,
-          postingAmountSum = Some(-789012)
-        ),
-        RdsPostingSummaryByTypeRow(
-          accountingPeriod = Some(3),
-          settlementSequenceNo = Some(789),
-          postingAmountSum = None
+          postingAmountSum = -789012
         )
       )
     )
 
   val postingSummaryByTypeResponseEmpty: PostingSummaryByTypeResponse =
-    PostingSummaryByTypeResponse(postingSummaryByTypeResponse = List.empty)
+    PostingSummaryByTypeResponse(List.empty)
 
   val postingSummaryByTypeResponseMultiple: PostingSummaryByTypeResponse =
-    PostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+    PostingSummaryByTypeResponse(postingSummary =
       List(
         PostingSummaryByTypeRow(
           accountingPeriod = 1,
@@ -92,22 +82,12 @@ trait PostingSummaryByTypeHelper {
     )
 
   val postingSummaryByTypeResponseNone: PostingSummaryByTypeResponse =
-    PostingSummaryByTypeResponse(postingSummaryByTypeResponse =
+    PostingSummaryByTypeResponse(postingSummary =
       List(
-        PostingSummaryByTypeRow(
-          accountingPeriod = 0,
-          settlementSequenceNo = 123,
-          postingAmountSum = -456789
-        ),
         PostingSummaryByTypeRow(
           accountingPeriod = 2,
           settlementSequenceNo = 0,
           postingAmountSum = -789012
-        ),
-        PostingSummaryByTypeRow(
-          accountingPeriod = 3,
-          settlementSequenceNo = 789,
-          postingAmountSum = 0
         )
       )
     )

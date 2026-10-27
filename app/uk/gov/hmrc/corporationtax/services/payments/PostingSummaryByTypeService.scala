@@ -48,11 +48,11 @@ class PostingSummaryByTypeService @Inject() (
     rdsPostingSummaryByTypeResponse: RdsPostingSummaryByTypeResponse
   ): PostingSummaryByTypeResponse =
     PostingSummaryByTypeResponse(
-      postingSummaryByTypeResponse = rdsPostingSummaryByTypeResponse.postingSummaryByTypeResponse.map { value =>
+      postingSummary = rdsPostingSummaryByTypeResponse.postingSummary.map { value =>
         PostingSummaryByTypeRow(
-          accountingPeriod = value.accountingPeriod.getOrElse(BigDecimal(zeroValue)),
+          accountingPeriod = value.accountingPeriod,
           settlementSequenceNo = value.settlementSequenceNo.getOrElse(BigDecimal(zeroValue)),
-          postingAmountSum = value.postingAmountSum.getOrElse(BigDecimal(zeroValue))
+          postingAmountSum = value.postingAmountSum
         )
       }
     )
